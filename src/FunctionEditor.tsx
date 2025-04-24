@@ -15,25 +15,25 @@ const FunctionEditor = (props) => {
 	const values = functionEntry.values;
 	const fn = fnMaker(values);
 
-	const setFunctionName = (name) => {
-		const newFunctionEntry = functions[name];
-		console.log("newFunctionEntry", newFunctionEntry);
-		newFunctionEntry.fnName = name;
-		newFunctionEntry.values = Object.keys(newFunctionEntry.params).map((name)=>[name, paramEntry[name]["defaultValue"]]);
-		console.log("newFunctionEntry", newFunctionEntry);
-		props.setFnEntry(newFunctionEntry);
-	}
+	// const setFunctionName = (name) => {
+	// 	const newFunctionEntry = functions[name];
+	// 	console.log("newFunctionEntry", newFunctionEntry);
+	// 	newFunctionEntry.fnName = name;
+	// 	newFunctionEntry.values = Object.keys(newFunctionEntry.params).map((name)=>[name, paramEntry[name]["defaultValue"]]);
+	// 	console.log("newFunctionEntry", newFunctionEntry);
+	// 	props.setFnEntry(newFunctionEntry);
+	// }
 
-	const setFunctionValues = (label, value) => {
-		const newFunctionEntry = {...functionEntry};
-		newFunctionEntry.values[label] = value;
-		props.setFnEntry(newFunctionEntry);
-	}
+	// const setFunctionValues = (label, value) => {
+	// 	const newFunctionEntry = {...functionEntry};
+	// 	newFunctionEntry.values[label] = value;
+	// 	props.setFnEntry(newFunctionEntry);
+	// }
 
 	return (<div className="FunctionEditor">
 		<ViewPort fn={functionEntry.renderFn}></ViewPort>
-		<FunctionSelect functions={functions} setFunctionName={setFunctionName} ></FunctionSelect>
-		<ParamList functionEntry={functionEntry} setFunctionValues={setFunctionValues}></ParamList>
+		<FunctionSelect functions={functions} setFunctionName={props.fnEntrySetters.setFunctionName} ></FunctionSelect>
+		<ParamList functionEntry={functionEntry} setFunctionValues={props.fnEntrySetters.setFunctionValues}></ParamList>
 		</div>);
 }
 

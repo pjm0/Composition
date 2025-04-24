@@ -27,21 +27,46 @@ const CompositionChain = (params) => {
 		setFnList([...fnList, functionEntry]);
 	}
 
-	const getFunctionEntryUpdateFn = (id) => {
-		return (functionEntry) => {
+	const getFnEntrySetters = (id) => {
+		const functionEntry = fnList[id];
+
+		const generateRenderFn = () => {
+			const fnMaker = functionEntry.f;
+			const values = functionEntry.values;
+			return fnMaker(values);
+		}
+
+		const setFnEntry = (functionEntry) => {
 			const newFnList = [...fnList];
 			newFnList[id] = {...functionEntry};
 			functionEntry.id = id;
 			const fnMaker = functionEntry.f;
 			const values = functionEntry.values;
-			functionEntry.renderFn = fnMaker(values);
+			functionEntry.renderFn = generateRenderFn();
 			setFnList(newFnList);
 		}
+
+		const setFunctionName = (name) => {
+			const newFunctionEntry = functions[name];
+			newFunctionEntry.fnName = name;
+			newFunctionEntry.values = Object.keys(newFunctionEntry.params).map((name)=>[name, paramEntry[name]["defaultValue"]]);
+			newFunctionEntry.renderFn = generateRenderFn();
+
+			setFnEntry(newFunctionEntry);
+		}
+
+		const setFunctionValues = (label, value) => {
+			const newFunctionEntry = {...functionEntry};
+			newFunctionEntry.values[label] = value;
+			newFunctionEntry.renderFn = generateRenderFn();
+			setFnEntry(newFunctionEntry);
+		}
+		return {setFnEntry, setFunctionName, setFunctionValues}
 	}
 
 	return (<div className="CompositionChain">
 		<div>
-		{fnList.map((functionEntry)=>(<FunctionEditor key={functionEntry.id} functionEntry={functionEntry} addFunction={addFunction} setFnEntry={getFunctionEntryUpdateFn(functionEntry.id)}/>))}
+		{fnList.map((functionEntry)=>(<FunctionEditor key={functionEntry.id} functionEntry={functionEntry} addFunction={addFunction} fnEntrySetters={getFnEntrySetters(functionEntry.id)}/>))}
 		</div>
 		<button className="AddFunction" onClick={()=>addFunction("radialGrid")}>+</button>
 		<ViewPort/>

@@ -39,20 +39,6 @@ function App() {
     <ViewPort fn={comp(h,comp(f,f))}></ViewPort>
     <ViewPort fn={comp(h,comp(f,g))}></ViewPort>
     <ViewPort fn={comp(h,comp(f,h))}></ViewPort>
-
-    <ViewPort fn={comp(g,f)} size={256}></ViewPort>
-    <ViewPort fn={comp(g,g)} size={256}></ViewPort>
-    <ViewPort fn={comp(g,h)} size={256}></ViewPort>
-    <ViewPort fn={comp(g,f)} size={256}></ViewPort>
-    <ViewPort fn={comp(g,g)} size={256}></ViewPort>
-    <ViewPort fn={comp(g,h)} size={256}></ViewPort>
-    <ViewPort fn={comp(g,f)} size={256}></ViewPort>
-    <ViewPort fn={comp(g,g)} size={256}></ViewPort>
-    <ViewPort fn={comp(g,h)} size={256}></ViewPort>
-
-    <ViewPort fn={comp(h,f)} size={256}></ViewPort>
-    <ViewPort fn={comp(h,g)} size={256}></ViewPort>
-    <ViewPort fn={comp(h,f)} size={256}></ViewPort>
     </>
     )
 }
