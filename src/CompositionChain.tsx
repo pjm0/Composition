@@ -10,12 +10,8 @@ const CompositionChain = (params) => {
 	const [fnList, setFnList] = useState([]);
 	const [nextId, setNextId] = useState(0);
 
-	const deepCopy = (obj) => {
-		return JSON.parse(JSON.stringify(obj));
-	}
-
 	const loadFunction = (fnName) => {
-		const functionEntry = deepCopy(functions[fnName]);
+		const functionEntry = functions[fnName];
 		functionEntry.f = functions[fnName].f;
 		functionEntry[fnName] = fnName;
 		functionEntry.renderFn = functionEntry.f(functionEntry.values);

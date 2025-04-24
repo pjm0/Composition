@@ -3,6 +3,7 @@ import './App.css'
 import ViewPort from './ViewPort.tsx'
 import FunctionEditor from './FunctionEditor.tsx'
 import CompositionChain from './CompositionChain.tsx'
+import { f, g, h, composition } from './Functions.js'
 
 // const comp = (f, g) => {
 //   return (args) => f(g(args));
@@ -15,7 +16,7 @@ import CompositionChain from './CompositionChain.tsx'
 // const f = ([x,y])=>[mod(nAtan2(y,x)*4,1), mod(2*(x**2 + y**2)**0.5, 1)];
 
 // const h = ([x,y])=>[mod(y+0.5,1),mod(x+0.5,1)];
-
+const comp=composition;
 
 function App() {
 
@@ -24,10 +25,10 @@ function App() {
     <CompositionChain></CompositionChain>
  {/*   <FunctionEditor functionName="radialGrid"></FunctionEditor>
     <br/>*/}
-{/*   <ViewPort fn={f}></ViewPort>
+   <ViewPort fn={f}></ViewPort>
    <ViewPort fn={g}></ViewPort>
-   <ViewPort fn={h}></ViewPort>*/}
-{/*   
+   <ViewPort fn={h}></ViewPort>
+   
    <ViewPort fn={comp(f,f)}></ViewPort>
    <ViewPort fn={comp(f,g)}></ViewPort>
    <ViewPort fn={comp(f,h)}></ViewPort>
@@ -62,7 +63,7 @@ function App() {
 
    <ViewPort fn={comp(h,f)} size={256}></ViewPort>
    <ViewPort fn={comp(h,g)} size={256}></ViewPort>
-   <ViewPort fn={comp(h,f)} size={256}></ViewPort>*/}
+   <ViewPort fn={comp(h,f)} size={256}></ViewPort>
     </>
     )
 }

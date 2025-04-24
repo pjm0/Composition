@@ -81,6 +81,6 @@ const radialGrid = ({angleDivisions,
 
 
 
-export { functions, composition };
+export { functions, composition, f, g, h };
 
 
