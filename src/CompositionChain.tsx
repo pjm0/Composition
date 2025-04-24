@@ -6,13 +6,13 @@ import FunctionEditor from './FunctionEditor.tsx'
 import ParamList from './ParamList.tsx'
 import { composition, functions } from './Functions.js'
 
-	const loadFunction = (fnName) => {
-		const functionEntry = functions[fnName];
-		functionEntry.f = functions[fnName].f;
-		functionEntry[fnName] = fnName;
-		functionEntry.renderFn = functionEntry.f(functionEntry.values);
-		return functionEntry;
-	}
+const loadFunction = (fnName) => {
+	const functionEntry = functions[fnName];
+	functionEntry.f = functions[fnName].f;
+	functionEntry[fnName] = fnName;
+	functionEntry.renderFn = functionEntry.f(functionEntry.values);
+	return functionEntry;
+}
 
 
 const CompositionChain = (params) => {

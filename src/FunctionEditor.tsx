@@ -8,12 +8,11 @@ import { functions } from './Functions.js'
 
 const FunctionEditor = (props) => {
 	console.log("FunctionEditor", props);
-	
+
 	const [functionEntry, setFunctionEntry] = [props.functionEntry, props.setFunctionEntry];
 	const functionName = props.functionEntry.fnName;
 	const fnMaker = functionEntry.f;
 	const values = functionEntry.values;
-	const defaultFn = ([x,y])=>[x,y];
 	const fn = fnMaker(values);
 
 	const setFunctionName = (name) => {
