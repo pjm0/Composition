@@ -1,0 +1,23 @@
+
+#root {
+  width:100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#root[data-theme='dark']{
+  color: #BBB;
+}
+
+header, footer{
+  position: fixed;
+  height: 5vh;
+  width:100%;
+  border: 1px solid orange;
+  background-color: orange;
+}
+
+footer {
+  bottom: 0;
+  text-align: center;
+}
