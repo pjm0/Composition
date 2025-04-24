@@ -8,12 +8,7 @@ import { functions } from './Functions.js'
 
 const FunctionEditor = (props) => {
 	console.log("FunctionEditor", props);
-	const [, forceUpdate] = useState();
-
-	useEffect(() => {
-		console.log(`item prop changed:`, props.functionEntry);
-    forceUpdate({}); // Force a re-render by updating the state
-}, [props.functionEntry]);
+	
 	const [functionEntry, setFunctionEntry] = [props.functionEntry, props.setFunctionEntry];
 	const functionName = props.functionEntry.fnName;
 	const fnMaker = functionEntry.f;
