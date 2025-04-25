@@ -47,8 +47,8 @@ const radialGrid = ({angleDivisions,
 			f: radialGrid,
 			size: [5, 2, 2],
 			params: {
-				angleDivisions: {min: 1, max: 100, step: 1, defaultValue: 1},
-				radiusDivisions: {min: 1, max: 100, step: 1, defaultValue: 1}, 
+				angleDivisions: {min: 1, max: 32, step: 1, defaultValue: 1},
+				radiusDivisions: {min: 1, max: 16, step: 1, defaultValue: 1}, 
 				xShift: {min: 0, max: 1, step: 0.01, defaultValue: 0},
 				yShift: {min: 0, max: 1, step: 0.01, defaultValue: 0},
 				angleShift: {min: 0, max: 1, step: 0.01, defaultValue: 0}

@@ -14,7 +14,7 @@ function App() {
     <CompositionChain></CompositionChain>
 {/*   <FunctionEditor functionName="radialGrid"></FunctionEditor>
 <br/>*/}
-    <ViewPort fn={f}></ViewPort>
+{/*    <ViewPort fn={f}></ViewPort>
     <ViewPort fn={g}></ViewPort>
     <ViewPort fn={h}></ViewPort>
 
@@ -29,7 +29,7 @@ function App() {
     <ViewPort fn={comp(h,f)}></ViewPort>
     <ViewPort fn={comp(h,g)}></ViewPort>
     <ViewPort fn={comp(h,f)}></ViewPort>
-
+*/}
     <ViewPort fn={comp(f,comp(f,f))}></ViewPort>
     <ViewPort fn={comp(f,comp(f,g))}></ViewPort>
     <ViewPort fn={comp(f,comp(f,h))}></ViewPort>
