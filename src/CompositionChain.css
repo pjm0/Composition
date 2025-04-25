@@ -5,14 +5,25 @@
 	display: flex;
 	flex-direction: row;
 	flex-flow: wrap;
-	align-items: center;
 }
 
-.AddFunction {
-	display: inline-block;
+.AddFunctionButton {
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	flex-basis: auto;
 	font-size: 3rem;
-	width: 1rem;
-	border-radius: 0.5em;
+	width: 1.2em;
+	height: 1.2em;
+	border-radius: 25%;
+	padding: 0;
 	border: 3px double black;
-	margin: 1rem;
+	margin: auto 2%;
+}
+
+.CompositionChain > .ViewPort {
+	position: absolute;
+	top: 0;
+	right: 0;
+	opacity: 0.75;
 }

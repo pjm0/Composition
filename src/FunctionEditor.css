@@ -10,6 +10,11 @@
 	border: 3px double black;
 	font-size: 0.7em;
 	font-weight: bold;
+/*	top: 0;
+	bottom: 0;
+	height: 100%;*/
+/	align-self: stretch;
+/*	box-sizing: content-box;*/
 /*	width: 12em;*/
 }
 

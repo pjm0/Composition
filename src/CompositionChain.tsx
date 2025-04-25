@@ -79,13 +79,14 @@ const CompositionChain = (params) => {
 	const f = renderFnList[0]?renderFnList.reduceRight(composition):([x,y])=>[x,y];
 	const g = renderFnList[0]?renderFnList.reduce(combine):([x,y])=>[x,y];
 	return (<div className="CompositionChain">
-		<ViewPort fn={f}size="200"/>
+		<ViewPort className="MainViewer" fn={f}size="200"/>
 		<br/>
 		<div>
 		{fnList.map((functionEntry)=>(<FunctionEditor key={functionEntry.id} label={functionEntry.id} functionEntry={functionEntry} addFunction={addFunction} fnEntrySetters={getFnEntrySetters(functionEntry.id)}/>))}
 		</div>
-		<button className="AddFunction" onClick={()=>addFunction("radialGrid")}>+</button>
-		
+		{/*<div className="AddFunction">*/}
+		<div className="AddFunctionButton" onClick={()=>addFunction("radialGrid")}>+</div>
+		{/*</div>*/}
 {/*			<div>
 		{renderFnList.map((functionEntry)=>(<ViewPort key={functionEntry.id} fn={functionEntry.renderFn}/>))}
 		</div>*/}
