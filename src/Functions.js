@@ -65,8 +65,8 @@ const radialGrid = ({angleDivisions,
 			f: axialGrid,
 			size: [4, 2, 2],
 			params: {
-				xScale: {min: 1, max: 100, step: 1, defaultValue: 1},
-				yScale: {min: 1, max: 100, step: 1, defaultValue: 1},
+				xScale: {min: 1, max: 32, step: 1, defaultValue: 1},
+				yScale: {min: 1, max: 32, step: 1, defaultValue: 1},
 				xShift: {min: 0, max: 1, step: 0.01, defaultValue: 0},
 				yShift: {min: 0, max: 1, step: 0.01, defaultValue: 0}
 			},

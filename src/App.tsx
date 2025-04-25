@@ -30,7 +30,7 @@ function App() {
     <ViewPort fn={comp(h,g)}></ViewPort>
     <ViewPort fn={comp(h,f)}></ViewPort>
 */}
-    <ViewPort fn={comp(f,comp(f,f))}></ViewPort>
+{/*    <ViewPort fn={comp(f,comp(f,f))}></ViewPort>
     <ViewPort fn={comp(f,comp(f,g))}></ViewPort>
     <ViewPort fn={comp(f,comp(f,h))}></ViewPort>
     <ViewPort fn={comp(g,comp(f,f))}></ViewPort>
@@ -38,7 +38,7 @@ function App() {
     <ViewPort fn={comp(g,comp(f,h))}></ViewPort>
     <ViewPort fn={comp(h,comp(f,f))}></ViewPort>
     <ViewPort fn={comp(h,comp(f,g))}></ViewPort>
-    <ViewPort fn={comp(h,comp(f,h))}></ViewPort>
+    <ViewPort fn={comp(h,comp(f,h))}></ViewPort>*/}
     </>
     )
 }

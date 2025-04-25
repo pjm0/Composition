@@ -67,9 +67,12 @@ const CompositionChain = (params) => {
 		}
 		return {setFnEntry, setFunctionName, setFunctionValues}
 	}
+	const combine = (f, g)=>([x,y])=>[f(x)+g(x),f(y)+g(y)];
 const f = renderFnList[0]?renderFnList.reduce(composition):([x,y])=>[x,y];
+const g = renderFnList[0]?renderFnList.reduce(combine):([x,y])=>[x,y];
 	return (<div className="CompositionChain">
-		<ViewPort fn={f}size="256"/>
+		<ViewPort fn={f}size="200"/>
+		<br/>
 		<div>
 		{fnList.map((functionEntry)=>(<FunctionEditor key={functionEntry.id} functionEntry={functionEntry} addFunction={addFunction} fnEntrySetters={getFnEntrySetters(functionEntry.id)}/>))}
 		</div>
