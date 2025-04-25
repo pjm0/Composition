@@ -1,7 +1,6 @@
 import { useState } from 'react'
 
 const ParamList = (props) => {
-	console.log("ParamList rerender", props);
 	const functionEntry = props.functionEntry;
 	const paramEntry = functionEntry["params"];
 	const paramNames = Object.keys(paramEntry);

@@ -20,6 +20,11 @@
 		margin: 1em;
 }
 
+.Label {
+	margin-bottom: 0;
+	font-size: 0.7rem;
+}
+
 .FunctionEditor .Params {
 		display: block;
 		padding: 1em 0;
