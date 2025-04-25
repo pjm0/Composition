@@ -1,12 +1,13 @@
 import { useState } from 'react'
+import { functions } from './Functions.js'
 
 const FunctionSelect = (props) => {
 	const handleFunctionSelectUpdate = (e) => {
 		props.setFunctionName(e.target.value);
 	}
 	return (
-		<select defaultValue="radialGrid" onChange={handleFunctionSelectUpdate}>
-		{Object.keys(props.functions).map((functionName) => (
+		<select value={props.functionName} onChange={handleFunctionSelectUpdate}>
+		{Object.keys(functions).map((functionName) => (
 			<option key={functionName} value={functionName}>
 			{functionName}
 			</option>

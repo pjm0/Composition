@@ -7,34 +7,16 @@ import ParamList from './ParamList.tsx'
 import { functions } from './Functions.js'
 
 const FunctionEditor = (props) => {
-	console.log("FunctionEditor", props);
+console.log("FunctionEditor", props);
 
-	const [functionEntry, setFunctionEntry] = [props.functionEntry, props.setFunctionEntry];
-	const functionName = props.functionEntry.fnName;
-	const fnMaker = functionEntry.f;
-	const values = functionEntry.values;
-	const fn = fnMaker(values);
+const [functionEntry, setFunctionEntry] = [props.functionEntry, props.setFunctionEntry];
+const functionName = functionEntry.name;
 
-	// const setFunctionName = (name) => {
-	// 	const newFunctionEntry = functions[name];
-	// 	console.log("newFunctionEntry", newFunctionEntry);
-	// 	newFunctionEntry.fnName = name;
-	// 	newFunctionEntry.values = Object.keys(newFunctionEntry.params).map((name)=>[name, paramEntry[name]["defaultValue"]]);
-	// 	console.log("newFunctionEntry", newFunctionEntry);
-	// 	props.setFnEntry(newFunctionEntry);
-	// }
-
-	// const setFunctionValues = (label, value) => {
-	// 	const newFunctionEntry = {...functionEntry};
-	// 	newFunctionEntry.values[label] = value;
-	// 	props.setFnEntry(newFunctionEntry);
-	// }
-
-	return (<div className="FunctionEditor">
-		<ViewPort fn={functionEntry.renderFn}></ViewPort>
-		<FunctionSelect functions={functions} setFunctionName={props.fnEntrySetters.setFunctionName} ></FunctionSelect>
-		<ParamList functionEntry={functionEntry} setFunctionValues={props.fnEntrySetters.setFunctionValues}></ParamList>
-		</div>);
+return (<div className="FunctionEditor">
+	<ViewPort fn={functionEntry.renderFn}></ViewPort>
+	<FunctionSelect functions={functions} functionName={functionName} setFunctionName={props.fnEntrySetters.setFunctionName} ></FunctionSelect>
+	<ParamList functionEntry={functionEntry} setFunctionValues={props.fnEntrySetters.setFunctionValues}></ParamList>
+	</div>);
 }
 
 export default FunctionEditor;

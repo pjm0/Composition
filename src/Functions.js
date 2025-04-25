@@ -44,6 +44,7 @@ const radialGrid = ({angleDivisions,
 
 	const functions = {		
 		"radialGrid": {
+			name: "radialGrid",
 			f: radialGrid,
 			size: [5, 2, 2],
 			params: {
@@ -62,6 +63,7 @@ const radialGrid = ({angleDivisions,
 			}
 		},
 		"axialGrid": {
+			name: "axialGrid",
 			f: axialGrid,
 			size: [4, 2, 2],
 			params: {
