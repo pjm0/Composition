@@ -1,6 +1,6 @@
-* {
+/** {
 	border: 1px dashed black;
-}
+}*/
 .CompositionChain {
 	display: flex;
 	flex-direction: row;

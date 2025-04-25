@@ -6,23 +6,29 @@
 	display: inline-flex;
 	flex-direction: column;
 	justify-content: center;
-  align-items: center;
+	align-items: center;
 	border: 3px double black;
+	border-radius: 1em;
 	font-size: 0.7em;
 	font-weight: bold;
+	margin: 0.5em;
+	box-shadow: 5px black;
 /*	top: 0;
 	bottom: 0;
 	height: 100%;*/
-/	align-self: stretch;
+	align-self: stretch;
 /*	box-sizing: content-box;*/
 /*	width: 12em;*/
 }
 
 .FunctionEditor .ViewPort {
-		display: block;
-		width: fit-content;
-		height: fit-content;
-		margin: 1em;
+	border: none;
+	box-shadow: 5px black;
+	border-radius: 1em;
+	display: block;
+	width: fit-content;
+	height: fit-content;
+	margin: 1em;
 }
 
 .Label {
@@ -31,13 +37,13 @@
 }
 
 .FunctionEditor .Params {
-		display: block;
-		padding: 1em 0;
-		overflow-y: auto;
+	display: block;
+	padding: 1em 0;
+	overflow-y: auto;
 }
 .FunctionEditor .Param {
-		display: block;
+	display: block;
 }
 .FunctionEditor .Param input {
-		width: 3em;
+	width: 3em;
 }

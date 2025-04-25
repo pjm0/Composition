@@ -5,10 +5,6 @@
   text-align: center;
 }
 
-#root[data-theme='dark']{
-  color: #BBB;
-}
-
 header, footer{
   position: fixed;
   height: 5vh;

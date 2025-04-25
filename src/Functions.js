@@ -1,6 +1,6 @@
 const instantiate = (f, fns) => {
-		return ()=>f(...fns.map((g)=>g()));
-	}
+	return ()=>f(...fns.map((g)=>g()));
+}
 
 const evaluateFn = (f) => f();
 const makeInfixFn = (s)=>eval(`(a,b)=>a${s}b`);
@@ -14,8 +14,9 @@ const doublyInstantiatedFns = instantiatedFns.map((f)=>instantiate(f,instantiate
 
 
 const composition = (f, g) => {
-  return (args) => f(g(args));
+	return (args) => f(g(args));
 }
+
 const mod = (a,b)=>((a%b)+b) % b;
 const nSin = (n)=>0.5+0.5*Math.sin(n*2*Math.PI);
 const nCos = (n)=>0.5+0.5*Math.cos(n*2*Math.PI);
@@ -39,8 +40,30 @@ const radialGrid = ({angleDivisions,
 	};
 
 	const axialGrid = ({xScale, yScale, xShift, yShift}) => {
-		return ([x,y])=>[mod((x+xShift)*xScale, 1), mod((y+yShift)*yScale, 1)];;
+		return ([x,y])=>[mod(mod(x+xShift,1)*xScale, 1), mod(mod(y+yShift,1)*yScale, 1)];;
 	};
+
+	const skew = (skewAngle) => {
+		return ([x,y])=>{
+			return [x*nCos(skewAngle)-y*nSin(skewAngle), x*nSin(skewAngle)+y*nCos(skewAngle)];
+		}
+	}
+	const shift = (xShift, yShift) => {
+		return ([x,y])=>{
+			return [mod(x+xShift, 1), mod(y+yShift, 1)];
+		}
+	}
+
+	const cosines = () => {
+		return ([x,y])=>[nCos(x),nCos(y)]
+	}
+
+	const unsigned = () => {
+		return ([x,y])=>[(x+1)*2,(y+1)*2]
+	}
+	const modulo = () => {
+		return ([x,y])=>[mod(x,1),mod(y,1)]
+	}
 
 	const functions = {		
 		"radialGrid": {
@@ -78,11 +101,45 @@ const radialGrid = ({angleDivisions,
 				xShift:  0,
 				yShift:  0
 			}
+		},
+		"cosines": {
+			name: "cosines",
+			f: cosines,
+			size: [0, 2, 2],
+			params: {},
+			values: {}
+		},
+		"unsigned": {
+			name: "unsigned",
+			f: unsigned,
+			size: [0, 2, 2],
+			params: {},
+			values: {}
+		},
+		"modulo": {
+			name: "modulo",
+			f: modulo,
+			size: [0, 2, 2],
+			params: {},
+			values: {}
 		}
+		//"shift": {
+		// 	name: "shift",
+		// 	f: shift,
+		// 	size: [2, 2, 2],
+		// 	params: {
+		// 		xShift: {min: 0, max: 1, step: 0.01, defaultValue: 1},
+		// 		yShift: {min: 0, max: 1, step: 0.01, defaultValue: 1}
+		// 	},
+		// 	values: {
+		// 		xShift: 0,
+		// 		yShift: 0  
+		// 	}
+		//}
 	};
 
 
 
-export { functions, composition, f, g, h };
+	export { functions, composition, f, g, h };
 
 
