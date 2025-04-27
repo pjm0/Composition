@@ -13,6 +13,7 @@ const functionName = functionEntry.name;
 
 return (<div className="FunctionEditor">
     <h3 className="Label">{props.functionEntry.id}</h3>
+	<ViewPort fn={functionEntry.accumulatorFn}></ViewPort>
 	<ViewPort fn={functionEntry.renderFn}></ViewPort>
 	<FunctionSelect functions={functions} functionName={functionName} setFunctionName={props.fnEntrySetters.setFunctionName} ></FunctionSelect>
 	<ParamList paramInfo={functionEntry.params} setFunctionValues={props.fnEntrySetters.setFunctionValues}></ParamList>

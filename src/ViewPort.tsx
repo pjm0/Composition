@@ -15,9 +15,9 @@ const ViewPort = ({fn=(([x,y])=>[x,y]), size=128}) => {
 		const f = fn;
 		const plotFn = (f, ctx) => {
 			for (let px = 0; px < size; px += 1) {
-				const x = (px / size)*2-1;
+				const x = (px / size);//*2-1;
 				for (let py = 0; py < size; py += 1) {
-					const y = (py / size)*2-1;
+					const y = (py / size);//*2-1;
 					const [a, b, c] = [1, 1, 1];
 					let returnValue 
 					try {

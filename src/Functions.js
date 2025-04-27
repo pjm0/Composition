@@ -17,6 +17,12 @@ const composition = (f, g) => {
 	return (args) => f(g(args));
 }
 
+	const chain = (functionList) => {
+		console.log("chain", functionList)
+		return functionList[0]?functionList.reduceRight(composition):([x,y])=>[x,y];
+	}
+
+
 const mod = (a,b)=>((a%b)+b) % b;
 const nSin = (n)=>0.5+0.5*Math.sin(n*2*Math.PI);
 const nCos = (n)=>0.5+0.5*Math.cos(n*2*Math.PI);
@@ -32,9 +38,11 @@ const radialGrid = ({angleDivisions,
 	yShift,
 	angleShift}) => {
 	return ([x,y])=>{
-		x += xShift;
-		y += yShift;
-		return [mod((nAtan2(y,x)+angleShift)*angleDivisions,1),
+		// x += xShift;
+		// y += yShift;
+		x = (x-xShift)*2;
+		y = (y-yShift)*2;
+		return [mod((nAtan2(y,x)-angleShift)*angleDivisions,1),
 			mod(radiusDivisions*(x**2 + y**2)**0.5, 1)]
 		};	
 	};
@@ -59,7 +67,7 @@ const radialGrid = ({angleDivisions,
 	}
 
 	const unsigned = () => {
-		return ([x,y])=>[(x+1)*2,(y+1)*2]
+		return ([x,y])=>[(x-0.5)*2,(y-0.5)*2]
 	}
 	const modulo = () => {
 		return ([x,y])=>[mod(x,1),mod(y,1)]
@@ -73,15 +81,15 @@ const radialGrid = ({angleDivisions,
 			params: {
 				angleDivisions: {min: 1, max: 32, step: 1, defaultValue: 1},
 				radiusDivisions: {min: 1, max: 16, step: 1, defaultValue: 1}, 
-				xShift: {min: 0, max: 1, step: 0.01, defaultValue: 0},
-				yShift: {min: 0, max: 1, step: 0.01, defaultValue: 0},
+				xShift: {min: 0, max: 1, step: 0.01, defaultValue: 0.5},
+				yShift: {min: 0, max: 1, step: 0.01, defaultValue: 0.5},
 				angleShift: {min: 0, max: 1, step: 0.01, defaultValue: 0}
 			},
 			values: {
 				angleDivisions: 1,
 				radiusDivisions: 1, 
-				xShift: 0,
-				yShift: 0,
+				xShift: 0.5,
+				yShift: 0.5,
 				angleShift: 0
 			}
 		},
@@ -122,24 +130,24 @@ const radialGrid = ({angleDivisions,
 			size: [0, 2, 2],
 			params: {},
 			values: {}
+		},
+		"shift": {
+			name: "shift",
+			f: shift,
+			size: [2, 2, 2],
+			params: {
+				xShift: {min: 0, max: 1, step: 0.01, defaultValue: 1},
+				yShift: {min: 0, max: 1, step: 0.01, defaultValue: 1}
+			},
+			values: {
+				xShift: 0,
+				yShift: 0  
+			}
 		}
-		//"shift": {
-		// 	name: "shift",
-		// 	f: shift,
-		// 	size: [2, 2, 2],
-		// 	params: {
-		// 		xShift: {min: 0, max: 1, step: 0.01, defaultValue: 1},
-		// 		yShift: {min: 0, max: 1, step: 0.01, defaultValue: 1}
-		// 	},
-		// 	values: {
-		// 		xShift: 0,
-		// 		yShift: 0  
-		// 	}
-		//}
 	};
 
 
 
-	export { functions, composition, f, g, h };
+	export { functions, composition, chain, f, g, h };
 
 

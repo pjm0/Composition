@@ -3,6 +3,7 @@
 }*/
 
 .FunctionEditor {
+	flex: 0;
 	display: inline-flex;
 	flex-direction: column;
 	justify-content: center;
@@ -13,10 +14,11 @@
 	font-weight: bold;
 	margin: 0.5em;
 	box-shadow: 5px black;
+	height: auto;
 /*	top: 0;
 	bottom: 0;
 	height: 100%;*/
-	align-self: stretch;
+/*	align-self: stretch;*/
 /*	box-sizing: content-box;*/
 /*	width: 12em;*/
 }
@@ -46,4 +48,15 @@
 }
 .FunctionEditor .Param input {
 	width: 3em;
+}
+.FunctionSelect {
+	    color: #ec5;
+    background-color: #477;
+	    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none; 
+    border: 1px solid #ec5;
+    /* needed for Firefox: */
+    overflow:hidden;
+/*    width: 120%;*/
 }

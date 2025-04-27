@@ -5,7 +5,7 @@
   text-align: center;
 }
 
-header, footer{
+/*header, footer{
   position: fixed;
   height: 5vh;
   width:100%;
@@ -16,4 +16,4 @@ header, footer{
 footer {
   bottom: 0;
   text-align: center;
-}
+}*/
