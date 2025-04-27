@@ -1,6 +1,6 @@
 import { useState } from 'react'
 // import { StrictMode } from 'react'
-import './CompositionChain.css'
+import '../style/CompositionChain.css'
 import ViewPort from './ViewPort.tsx'
 import FunctionEditor from './FunctionEditor.tsx'
 import ParamList from './ParamList.tsx'
@@ -78,10 +78,14 @@ const CompositionChain = (params) => {
 	const g = renderFnList[0]?renderFnList.reduce(combine):([x,y])=>[x,y];
 	return (<>
 		<div className="CompositionChain">
-		<div>{[...(accumulatorFnList.entries().map((i, fn)=>(<ViewPort key={i} label={i} f={fn}></ViewPort>)))]}
-		</div>
+{/*		<div>{[...(accumulatorFnList.entries().map((i, fn)=>(<ViewPort key={i} label={i} f={fn}></ViewPort>)))]}
+		</div>*/}
 		<div>
-		{fnList.map((functionEntry)=>(<FunctionEditor key={functionEntry.id} label={functionEntry.id} accumulatorFn={accumulatorFnList[functionEntry.id]} functionEntry={functionEntry} addFunction={addFunction} fnEntrySetters={getFnEntrySetters(functionEntry.id)}/>))}
+		{fnList.map((functionEntry)=>{
+			const testPoint = [Math.random(),Math.random()];
+			console.log("accumulatorFnList", accumulatorFnList, accumulatorFnList[functionEntry.id], testPoint, accumulatorFnList[functionEntry.id](testPoint));
+			return (<FunctionEditor key={functionEntry.id} label={functionEntry.id} accumulatorFn={accumulatorFnList[functionEntry.id]} functionEntry={functionEntry} addFunction={addFunction} fnEntrySetters={getFnEntrySetters(functionEntry.id)}/>)
+		})}
 		</div>
 		{/*<div className="AddFunction">*/}
 		<div className="AddFunctionButton" onClick={()=>addFunction("radialGrid")}>&#xFF0B;</div>

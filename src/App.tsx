@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './App.css'
+import '../style/App.css'
 import ViewPort from './ViewPort.tsx'
 import FunctionEditor from './FunctionEditor.tsx'
 import CompositionChain from './CompositionChain.tsx'

@@ -1,8 +1,8 @@
 import { useRef, useEffect } from 'react'
 // import { StrictMode } from 'react'
-import './ViewPort.css'
+import '../style/ViewPort.css'
 
-const ViewPort = ({fn=(([x,y])=>[x,y]), size=128}) => {
+const ViewPort = ({fn=(([x,y])=>[1,0,1]), size=128}) => {
 	const canvas = useRef(null);
 	const render = () => {
 
