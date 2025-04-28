@@ -10,9 +10,8 @@ const FunctionEditor = (props) => {
 
 const [functionEntry, setFunctionEntry] = [props.functionEntry, props.setFunctionEntry];
 const functionName = functionEntry.name;
-console.log("functionEntry.accumulatorFn", functionEntry.accumulatorFn);
 
-return (<div className="FunctionEditor">
+return (<div className="FunctionEditor shadow">
     <h3 className="Label">{props.functionEntry.id}</h3>
 	<ViewPort size={64} fn={props.accumulatorFn}></ViewPort>
 	<ViewPort fn={functionEntry.renderFn}></ViewPort>

@@ -4,9 +4,6 @@ import '../style/ViewPort.css'
 
 const ViewPort = ({fn=(([x,y])=>[1,0,1]), size=128}) => {
 	const canvas = useRef(null);
-	const render = () => {
-
-	}
 	
 	useEffect(()=>{
 		const ctx = canvas.current.getContext('2d');
@@ -18,7 +15,6 @@ const ViewPort = ({fn=(([x,y])=>[1,0,1]), size=128}) => {
 				const x = (px / size);//*2-1;
 				for (let py = 0; py < size; py += 1) {
 					const y = (py / size);//*2-1;
-					const [a, b, c] = [1, 1, 1];
 					let returnValue 
 					try {
 						returnValue = f([x,y]);
@@ -30,8 +26,6 @@ const ViewPort = ({fn=(([x,y])=>[1,0,1]), size=128}) => {
 					const R = color[0];
 					const G = color[1];
 					const B = color.length >= 3 ? color[2] : 0;
-					const xScaled = (x + 1) * (size / 2);
-					const yScaled = (1 - y) * (size / 2);
 
 					ctx.fillStyle = `rgb(${R * 255}, ${G * 255}, ${B * 255})`;
 					ctx.fillRect(px, py, 1, 1);

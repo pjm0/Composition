@@ -8,19 +8,12 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	border: 3px double black;
+	border: 1px solid black;
 	border-radius: 1em;
 	font-size: 0.7em;
 	font-weight: bold;
 	margin: 0.5em;
-	box-shadow: 5px black;
 	height: auto;
-/*	top: 0;
-	bottom: 0;
-	height: 100%;*/
-/*	align-self: stretch;*/
-/*	box-sizing: content-box;*/
-/*	width: 12em;*/
 }
 
 .FunctionEditor .ViewPort {

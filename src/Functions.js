@@ -72,6 +72,12 @@ const radialGrid = ({angleDivisions,
 	const modulo = () => {
 		return ([x,y])=>[mod(x,1),mod(y,1)]
 	}
+	const grayscale = () => {
+		return ([x,y])=>[(x+y)/2,(x+y)/2,(x+y)/2]
+	}
+	const threshold = (n) => {
+		return ([x,y])=>((x+y)/2>n)?[1,1,1]:[0,0,0]
+	}
 
 	const functions = {		
 		"radialGrid": {
@@ -117,6 +123,13 @@ const radialGrid = ({angleDivisions,
 			params: {},
 			values: {}
 		},
+			"grayscale": {
+			name: "grayscale",
+			f: grayscale,
+			size: [0, 2, 2],
+			params: {},
+			values: {}
+		},
 		"unsigned": {
 			name: "unsigned",
 			f: unsigned,
@@ -142,6 +155,17 @@ const radialGrid = ({angleDivisions,
 			values: {
 				xShift: 0,
 				yShift: 0  
+			}
+		},
+				"threshold": {
+			name: "threshold",
+			f: threshold,
+			size: [2, 2, 2],
+			params: {
+				threshold: {min: 0, max: 1, step: 0.01, defaultValue: 1}
+			},
+			values: {
+				threshold: 0.5,
 			}
 		}
 	};

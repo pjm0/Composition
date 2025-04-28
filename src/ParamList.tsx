@@ -6,7 +6,7 @@ const ParamList = (props) => {
 	return (
 		<div className="Params">
 		{Object.keys(paramInfo).map((p)=>(<div key={p} className="Param">
-			{p}<input type="range"
+			{p}<input type="number"
 			min={paramInfo[p].min}
 			max={paramInfo[p].max}
 			step={paramInfo[p].step}

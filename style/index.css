@@ -1,3 +1,10 @@
+button, select, input {
+  appearance: none;
+  color: #ec5;
+  background-color: #477;
+
+}
+
 html {
 /*  margin: 0;
   padding: 0;*/
@@ -55,4 +62,8 @@ h1 {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.shadow {
+  box-shadow: 1px 1px 5px black;
 }

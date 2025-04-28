@@ -9,7 +9,7 @@ const FunctionSelect = (props) => {
 		<select className="FunctionSelect" value={props.functionName} onChange={handleFunctionSelectUpdate}>
 		{Object.keys(functions).map((functionName) => (
 			<option key={functionName} value={functionName}>
-			{functionName}&#9660;
+			{functionName}
 			</option>
 			))}
 		</select>
